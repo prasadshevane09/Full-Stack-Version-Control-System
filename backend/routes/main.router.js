@@ -1,9 +1,14 @@
 const express = require('express');
-const router = express.Router();
+const userRouter = require("./user.router");
+const repoRouter = require("./repo.router")
 
-// Minimal router so the app can start without errors.
-router.get('/', (req, res) => {
-  res.json({ ok: true, message: 'API is running' });
+const mainRouter = express.Router();
+
+mainRouter.use(userRouter);
+mainRouter.use(repoRouter);
+
+mainRouter.get('/', (req, res) => {
+  res.send("welcome!");
 });
 
-module.exports = router;
+module.exports = mainRouter;
