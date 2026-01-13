@@ -1,37 +1,49 @@
-const createRepository = (req, res) => {
-    res.send("Repository created!");
+const mongoose = require("mongoose");
+const Repository = require("../models/repoModel");
+const User = require("../models/userModel");
+const Issue = require("../models/issueModel");
+
+
+async function createRepository  (req, res) {
+    const{ owner, name, issues, content, description, visibility } = req.body;
+    try {
+
+    }catch (err) {
+    console.error("Error during creating repo : ", err.message);
+    res.status(500).send("Server error!");
+  }
 };
 
-const getAllRepository = (req, res) => {
+async function getAllRepository (req, res) {
     res.send("All Repositories fetched!");
 };
 
-const fetchRepositoryById = (req, res) => {
+async function fetchRepositoryById (req, res) {
     res.send("Repository details fetched");
 };
 
-const fetchRepositoryByName = (req, res) => {
+async function fetchRepositoryByName (req, res) {
     res.send("Repository details fetched");
 };
 
 
-const fetchRepositoriesForCurrentUser = (req, res) => {
+async function fetchRepositoriesForCurrentUser (req, res) {
     res.send("Repositories for login in user fetched");
 };
 
-const updateRepositoryById = (req, res) => {
+async function updateRepositoryById (req, res) {
     res.send("Repository updated!");
 };
 
-const toggleVisibilityById = (req, res) => {
+async function toggleVisibilityById (req, res) {
     res.send("Visibility Toggled!");
 };
 
-const deleteRepositoryById = (req, res) => {
+async function deleteRepositoryById (req, res) {
     res.send("Repository deleted!");
 };
 
-module.export = {
+module.exports = {
     createRepository,
     getAllRepository,
     fetchRepositoryById,
