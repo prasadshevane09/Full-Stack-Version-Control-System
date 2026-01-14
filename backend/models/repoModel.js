@@ -23,7 +23,7 @@ const RepositorySchema = new Schema({
         ref: "User",
         required: true,
     },
-    isssues: [{
+    issues: [{
         type: Schema.Types.ObjectId,
         ref: "Issue",
     }],
